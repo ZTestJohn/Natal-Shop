@@ -1,0 +1,14 @@
+{
+  "name": "reactexpressnodejsmysql_strore",
+  "version": "1.0.0",
+  "description": "RENM?",
+  "main": "eslint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && nodemon src/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

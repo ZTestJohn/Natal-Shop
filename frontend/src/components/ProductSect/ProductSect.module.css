@@ -1,0 +1,146 @@
+@import url("../../styles/variables.module.css");
+.ProductSect{
+    width: 80vw;
+    display: flex;
+    margin: 0;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.ProductSect nav, .ProductSect nav ol, .ProductSect nav ol li {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.Links a {
+    display: flex;
+    align-items: flex-start;
+    padding: 0;
+    font-size: 1.2em;
+    gap: 5px;
+    text-decoration: underline;
+}
+.Links p {
+    position: relative;
+    bottom: -2px;
+}
+.Links {
+    gap: 5px;
+}
+
+/* Shop Area ==========> */
+
+.productSect {
+    display: flex;
+}
+.ShopAreaAndInformations {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px;
+    width: 50%;
+}
+.NameOfProduct {
+    font-weight: 800;
+    font-size: 2.3vw;
+    margin-top: 20px;
+    text-align: justify;
+}
+.UniqueCode, .OffPrice {
+    color: var(--off);
+    font-weight: 200;
+    font-style: italic;
+}
+.description {
+    font-size: 1.3vw;
+    text-align: justify;
+}
+.Line {
+    align-self: center;
+    border-bottom: 2px dashed var(--off);
+    width: 80%;
+}
+.PriceArea {
+    display: flex;
+    justify-content: space-around;
+    height: 20%;
+}
+.PricesBeforeAndAfter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.OffPrice {
+    text-decoration: line-through;
+    font-size: 20px;
+}
+.Price {
+    font-size: 90px;
+    line-height: 90px;
+}
+.Cart form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.AddToCart {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--secundary-color);
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    padding: 15px 10px;
+    position: relative;
+}
+.CartQuantity {
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
+    text-align: center;
+    font-size: 2em;
+    width: 70px;
+    border-radius: 5px;
+}
+.QuantityButtons h1, .QuantityButtons button  {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--secundary-color);
+}
+.QuantityButtons {
+    display: flex;
+    width: 90px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    padding: 15px 10px;
+}
+.QuantityButtons h2, .QuantityButtons button  {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--secundary-color);
+}
+.QuantityButtons {
+    display: flex;
+    width: 90px;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    padding: 15px 10px;
+}   
+
+@media (width <= 1320px) {
+    .Price {
+        font-size: 50px;
+        line-height: 50px;
+    }
+}
+
+/* Celulares e tablets em pé ====> */
+@media (width <= 860px) {
+    .productSect {
+        flex-direction: column;
+    }
+}
