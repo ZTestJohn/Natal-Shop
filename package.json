@@ -7,8 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && nodemon src/index.js"
+    "dev:backend": "cd backend && nodemon src/server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7"
+  }
 }
