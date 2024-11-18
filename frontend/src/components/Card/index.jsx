@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 
-function Card({ img, titulo, id, price }) {
+function Card({ img, titulo, id, price, quantity=0 }) {
   price = Number(price);
   let priceBefore = price + price*0.3;
   return (

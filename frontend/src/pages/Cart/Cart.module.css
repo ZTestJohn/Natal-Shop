@@ -1,0 +1,34 @@
+@import url("../../styles/variables.module.css");
+
+.DivCart, .DivCart .boxFinal, .DivCart .boxFinal div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.DivCart .productsDivFinal{
+    width: 100%;
+}
+.DivCart .boxFinal div {
+    padding: 20px;
+    width: max-content;
+    background-color: var(--background-box-color);
+    border-radius: 12px;
+}
+.DivCart .boxFinal button {
+    padding: 10px;
+    background-color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.4em;
+    color: var(--background);
+    border-radius: 5px;
+}
+.DivCart .boxFinal h2 {
+    padding: 5px;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 2em;
+}
+.DivCart {
+    width: 100vw;
+}

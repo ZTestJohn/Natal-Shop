@@ -3,9 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import db from "../../json/produtosDB.json";
 import SliderImgs from "../SliderImgs";
 import { useState } from "react";
+import { useCartContext } from "../../contexts/Cart";
 
 function ProductSect() {
   const params = useParams();
+  const { cart, addToCart } = useCartContext()
+
   const product = db.find((e) => e.codigo_unico === params.id);
   let price = Number(product.preco);
   let priceBefore = price + price * 0.3;
@@ -18,6 +21,11 @@ function ProductSect() {
   function subQuantity(event) {
     event.preventDefault();
     setQuantity((prevQuantity) => Math.max(prevQuantity - 1, 1));
+  }
+  function addCart(e){
+    e.preventDefault()
+    product.quantity = Quantity
+    addToCart(product)
   }
   
   return (
@@ -75,7 +83,7 @@ function ProductSect() {
           </div>
           <div className={styles.Cart}>
             <form className={styles.Cart}>
-              <button type="submit" className={styles.AddToCart}>
+              <button onClick={addCart} type="submit" className={styles.AddToCart}>
                 Adiconar ao carrinho
               </button>
               <div className={styles.QuantityButtons}>
