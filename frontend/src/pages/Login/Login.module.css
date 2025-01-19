@@ -25,6 +25,9 @@
     padding: 20px;
     height: 100%;
 }
+.CreateAccountBox .AllTextDiv .AlertSucess {
+    color: green;
+}
 .CreateAccountBox .AllTextDiv h2 {
     font-size: 3.5vw;
 }

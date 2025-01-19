@@ -25,6 +25,9 @@
     padding: 20px;
     height: 100%;
 }
+.CreateAccountBox .AllTextDiv .AlertSucess {
+    color: green;
+}
 .CreateAccountBox .AllTextDiv h2 {
     font-size: 3.5vw;
 }
@@ -48,6 +51,15 @@
     justify-content: space-evenly;
     height: 80%;
     gap: 5px;
+}
+.inputsAndLabels div ul{
+    margin-left: 15px;
+    padding: 2px 0;
+}
+.inputsAndLabels div ul li{
+    list-style-type: initial;
+    font-size: 0.9em;
+    transition: color 0.5s ease;
 }
 .inputsAndLabels input {
     display: block;

@@ -17,6 +17,11 @@ class userRepository {
         return consultation(sql, id, "Não foi possível localizar")
     }
 
+    findByEmail(email) {
+        const sql = "SELECT * FROM users WHERE email=?";
+        return consultation(sql, email, "Não foi possível localizar");
+    }
+
     update(user, id) {
         const sql = "UPDATE users SET ? WHERE id=?";
         return consultation(sql, [user, id], "Não foi possível atualizar")

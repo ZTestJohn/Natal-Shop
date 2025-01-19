@@ -1,7 +1,4 @@
 import mysql from "mysql";
-// import dotenv from "dotenv";
-
-// dotenv.config();
 
 const connectionSQL = mysql.createConnection({
   host: 'localhost',
@@ -10,22 +7,6 @@ const connectionSQL = mysql.createConnection({
   password: 'ADMIN',
   database: 'natal_website',
 });
-
-// const connectionSQL = mysql.createConnection({
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_DATABASE,
-// });
-
-// console.log(
-//   process.env.DB_HOST,
-//   process.env.DB_PORT,
-//   process.env.DB_USER,
-//   process.env.DB_PASSWORD,
-//   process.env.DB_DATABASE
-// );
 
 connectionSQL.connect((err) => {
   if (err) {
@@ -42,6 +23,7 @@ connectionSQL.connect((err) => {
  * @param {string} messageReject mensagem a ser retornada ao rejeitar
  * @returns objeto da promisse
  */
+
 export const consultation = (sql, values="", messageReject ) => {
   return new Promise((resolve, reject )=> {
     connectionSQL.query(sql, values, (error, result) => {
