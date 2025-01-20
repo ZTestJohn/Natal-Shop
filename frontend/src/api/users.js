@@ -29,3 +29,14 @@ export async function getUserByEmail(email) {
   }
 }
 
+export async function loginUser(email, password) {
+  try {
+    return apiClient.post('/users/login', {
+      email: email,
+      password: password
+    })
+  } catch (e) {
+    console.error(e)
+  }
+}
+

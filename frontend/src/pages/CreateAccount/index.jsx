@@ -9,7 +9,8 @@ import {
   registerUser,
   emailIsAlreadyRegistered,
   getUserByEmail,
-} from "../../api/users";
+  loginUser
+} from "../../api/users.js";
 
 function CreateAccount() {
   const [name, setName] = useState("");
@@ -43,23 +44,24 @@ function CreateAccount() {
 
   function submitButton(e) {
     e.preventDefault();
-    verifyAccount(email, password, passwordRepeat, name);
+    registerAccount(email, password, passwordRepeat, name);
   }
 
-  async function verifyAccount(email, password, passwordRepeat, name) {
+  async function registerAccount(email, password, passwordRepeat, name) {
     const emailExists = await emailIsAlreadyRegistered(email);
     if (emailExists) {
       setErrorMessage("Email já cadastrado.");
       return;
     }
-    if (verifyPassword(password, passwordRepeat, name)) {
+    if (verifyPassword(password, passwordRepeat, name) && isValidEmail(email)) {
       try {
         await registerUser({ name, email, password });
-        const user = await getUserByEmail(email);
+        const { token } = await loginUser(email, password)
+        setErrorMessage("");
         setSucessMessage("A conta foi criada com sucesso!");
         const accountInformations = { 
           isLogged: true, 
-          accountId: user.id 
+          token: token
         };
         localStorage.setItem(
           "accountInformation",
@@ -98,6 +100,14 @@ function CreateAccount() {
     }
 
     return isValid;
+  } 
+
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const result = emailRegex.test(email)
+    setErrorMessage("Email inválido.");
+    if (!result) return setErrorMessage("Email inválido.")
+    return result;
   }
 
   return (

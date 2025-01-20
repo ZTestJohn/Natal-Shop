@@ -8,8 +8,9 @@ import styles from "./Login.module.css";
 import gifAccount from "./createaccount.gif";
 import { 
   emailIsAlreadyRegistered, 
-  getUserByEmail 
-} from "../../../../backend/src/services/api/users.js"
+  getUserByEmail,
+  loginUser
+} from "../../api/users.js"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -29,13 +30,18 @@ function Login() {
       try {
         const userAccount = await getUserByEmail(email)
         if (await passwordsAreTheSame(userAccount.password, password)){
-          setSucessMessage("Sucesso ao Entrar!")
-          const accountInformations = { isLogged: true, accountId: userAccount.id };  
+          const { token } = await loginUser(email, password)
+          setErrorMessage("")
+          setSucessMessage("Sucesso ao entrar!");
+          const accountInformations = { 
+            isLogged: true, 
+            token: token
+          };
           localStorage.setItem(
             "accountInformation",
             JSON.stringify(accountInformations)
           );
-          window.open("/", "_self")
+          window.open("/", "_self");
           return
 
         }
