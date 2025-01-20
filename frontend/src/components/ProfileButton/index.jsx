@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./ProfileButton.module.css";
 import ProfileMenu from "../ProfileMenu";
 
 function ProfileButton() {
   const [isLogged, setLogged] = useState(false);
   const [isActive, setActive] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("accountInformation")){
+      const accountInformation = JSON.parse(localStorage.getItem("accountInformation"))
+      if (accountInformation.isLogged) return setLogged(true)
+    }
+    setLogged(false)
+  }, [])
+  
+
   function alternateStatesProfile() {
     setActive(!isActive);
   }

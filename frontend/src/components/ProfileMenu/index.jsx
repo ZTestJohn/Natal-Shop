@@ -8,7 +8,6 @@ function ProfileMenu({ isLogged }) {
       <nav className={styles.nav}>
         <ul>
           <li>Perfil</li>
-          <li><Link to="/CreateAccount">Criar conta</Link></li>
         </ul>
       </nav>
     );
